@@ -1,0 +1,51 @@
+# See https://pre-commit.com for more information
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        description: https://github.com/psf/black
+        entry: black
+        language: python
+        require_serial: true
+        types: [python]
+      - id: isort
+        name: isort
+        description: https://github.com/pycqa/isort
+        entry: isort
+        language: python
+        require_serial: true
+        types: [python]
+        args: ["--filter-files"]
+      - id: pydocstyle
+        name: pydocstyle
+        description: https://github.com/pycqa/pydocstyle
+        entry: pydocstyle
+        language: python
+        types: [python]
+        args: ["--convention=google"]
+      - id: pylint
+        name: pylint
+        description: https://github.com/pycqa/pylint
+        entry: pylint
+        language: python
+        types: [python]
+      - id: pytest
+        name: pytest
+        description: https://github.com/pytest-dev/pytest
+        language: python
+        types: [python]
+        pass_filenames: false
+        entry: pytest
+        stages: [commit]
+      - id: mypy
+        name: mypy
+        description: https://github.com/python/mypy
+        entry: mypy
+        language: python
+        types: [python]

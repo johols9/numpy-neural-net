@@ -35,17 +35,4 @@ repos:
         entry: pylint
         language: python
         types: [python]
-      - id: pytest
-        name: pytest
-        description: https://github.com/pytest-dev/pytest
-        language: python
-        types: [python]
-        pass_filenames: false
-        entry: pytest
-        stages: [commit]
-      - id: mypy
-        name: mypy
-        description: https://github.com/python/mypy
-        entry: mypy
-        language: python
-        types: [python]
+        args: ["--disable=duplicate-code, too-few-public-methods"]
